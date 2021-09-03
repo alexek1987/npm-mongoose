@@ -1,32 +1,17 @@
 {
   "name": "mongoose-ts",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "release": {
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      "@semantic-release/git",
-      "@semantic-release/github"
-    ],
-    "branches": [
-      "main"
-    ]
-  },
   "dependencies": {
     "dotenv": "^10.0.0",
-    "mongoose": "^6.0.4"
-  },
-  "devDependencies": {
+    "mongoose": "^6.0.4",
     "typescript": "^4.4.2"
   }
 }
