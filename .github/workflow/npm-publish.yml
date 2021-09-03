@@ -1,0 +1,31 @@
+name: Release Node.js NPM Package
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    name: Increment version, and publish to NPM
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        with:
+          node-version: 14
+          check-latest: true
+          registry-url: https://npm.pkg.github.com
+          always-auth: true
+          scope: "@alex"
+      - name: Run commands
+        run: npm i
+      - name: NPM release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx -p @semantic-release/changelog -p @semantic-release/git -p semantic-release semantic-release

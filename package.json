@@ -19,7 +19,7 @@
       "@semantic-release/github"
     ],
     "branches": [
-      "master"
+      "main"
     ]
   },
   "dependencies": {
